@@ -24,5 +24,5 @@ jobs:
         latest_changes_header: '# Release Notes\n\n'
     # - name: Secure tmate session
     #   run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.xtmate.conf
-    # - name: Setup tmate session
-    #   uses: mxschmitt/action-tmate@v3
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3

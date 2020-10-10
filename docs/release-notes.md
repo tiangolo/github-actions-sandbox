@@ -2,6 +2,13 @@
 
 ### Woohoo new stuff! 🎉
 
+It's just: 📝 Add debugging message. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 23 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/23).
+
+🥳 🕺 💃
+
+...okay, back to code. 🤓
+### Woohoo new stuff! 🎉
+
 It's just: ⚗ Debug tmate authorized keys. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 22 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/22).
 
 🥳 🕺 💃

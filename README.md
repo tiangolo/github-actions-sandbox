@@ -35,6 +35,8 @@ And now let's time Docker 🐋
 
 Docker is a lot faster than building every time. 🎉
 
+Now this uses a Docker tag and everything. Much wow. Such pro. 🐶
+
 ### Latest Changes
 
 * ⚗ Third experiment from Camila's account. PR [#4](https://github.com/tiangolo/github-actions-sandbox/pull/4) by [@mariacamilagl](https://github.com/mariacamilagl).

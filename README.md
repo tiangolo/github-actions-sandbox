@@ -25,6 +25,8 @@ Hey t'mate!
 
 We now have templates woohoo! 🎉
 
+Let's see those logs.
+
 ### Latest Changes
 
 * ⚗ Third experiment from Camila's account. PR [#4](https://github.com/tiangolo/github-actions-sandbox/pull/4) by [@mariacamilagl](https://github.com/mariacamilagl).

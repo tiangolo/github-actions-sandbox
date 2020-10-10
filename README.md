@@ -31,6 +31,8 @@ Debug didn't work 😢
 
 No more tmate, let's check those times.
 
+And now let's time Docker 🐋
+
 ### Latest Changes
 
 * ⚗ Third experiment from Camila's account. PR [#4](https://github.com/tiangolo/github-actions-sandbox/pull/4) by [@mariacamilagl](https://github.com/mariacamilagl).

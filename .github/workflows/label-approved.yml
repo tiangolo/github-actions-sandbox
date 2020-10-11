@@ -14,7 +14,7 @@ jobs:
     - uses: tiangolo/label-approved@main
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        debug: true
+        debug: 'true'
         config: >
           {
             "approved-1":

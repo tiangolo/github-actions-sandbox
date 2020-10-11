@@ -3,6 +3,9 @@ name: Label Approved
 on:
   schedule:
     - cron: "* * * * *"
+  issue_comment:
+      types:
+          - created
 
 jobs:
   label-approved:

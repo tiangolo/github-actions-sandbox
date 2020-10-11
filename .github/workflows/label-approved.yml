@@ -19,7 +19,7 @@ jobs:
           {
             "approved-1":
               { 
-                "await_label": "awaiting review"
+                "await_label": "awaiting review",
                 "number": 1
               }
           }

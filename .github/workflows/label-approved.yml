@@ -15,7 +15,11 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         debug: true
-        config:
-          approved-1:
-            await_label: awaiting review
-            number: 1
+        config: >
+          {
+            "approved-1":
+              { 
+                "await_label": "awaiting review"
+                "number": 1
+              }
+          }

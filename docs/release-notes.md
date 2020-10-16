@@ -2,6 +2,13 @@
 
 ### Woohoo new stuff! 🎉
 
+This changed: 📝 Cleanup README, remove debris 🚮. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 30 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/30). now back to code. 🤓
+
+🥳 🕺 💃
+
+...okay, back to code. 🤓
+### Woohoo new stuff! 🎉
+
 It's just: 👌 Awaiting for wife approval. Literally.. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 29 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/29).
 
 🥳 🕺 💃

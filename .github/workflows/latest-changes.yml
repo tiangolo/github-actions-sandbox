@@ -6,11 +6,14 @@ on:
       - master
     types:
       - closed
+  workflow_dispatch:
+    inputs:
+      number:
+        description: PR number
+        required: true
 
 jobs:
   latest-changes:
-    if: github.event.pull_request.merged == true
-    # runs-on: self-hosted
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -18,8 +21,9 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
-    - uses: docker://tiangolo/latest-changes:0.0.1
+    - uses: docker://tiangolo/latest-changes:0.0.2
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         latest_changes_file: docs/release-notes.md
         latest_changes_header: '# Release Notes\n\n'
         template_file: ./.github/workflows/release-notes.jinja2

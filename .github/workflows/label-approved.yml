@@ -2,7 +2,7 @@ name: Label Approved
 
 on:
   schedule:
-    - cron: "0 0 1 * *"
+    - cron: "* * * * *"
   issue_comment:
       types:
           - created
@@ -11,7 +11,7 @@ jobs:
   label-approved:
     runs-on: ubuntu-latest
     steps:
-    - uses: tiangolo/label-approved@main
+    - uses: docker://tiangolo/label-approved@latest
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         debug: true

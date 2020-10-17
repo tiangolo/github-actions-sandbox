@@ -11,7 +11,7 @@ jobs:
   label-approved:
     runs-on: ubuntu-latest
     steps:
-    - uses: docker://tiangolo/label-approved@latest
+    - uses: docker://tiangolo/label-approved:latest
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         debug: true

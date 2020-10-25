@@ -1,0 +1,27 @@
+name: Build Docs
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - uses: actions/checkout@v2
+      - name: Build Docs
+        run: |
+          mkdir -p site
+          echo "Hello Docs" > site/hello.html
+      - name: Zip docs
+        run: |
+          rm -f docs.zip
+          zip -r docs.zip ./site
+      - uses: actions/upload-artifact@v2
+        if: github.event_name == 'pull_request'
+        with:
+          name: docs-zip-${{ github.event.pull_request.head.sha }}
+          path: ./docs.zip

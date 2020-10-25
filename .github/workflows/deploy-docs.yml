@@ -1,0 +1,26 @@
+name: Deploy Docs
+on:
+  workflow_run:
+    workflows: ["Build Docs"]
+    types: 
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - uses: actions/checkout@v2
+      - name: Build Docs
+        run: |
+          mkdir -p site
+          echo "Hello Docs" > site/hello.html
+      # - name: Secure tmate session
+      #   run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.tmate.conf
+      # - name: Debug tmate
+      #   run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3

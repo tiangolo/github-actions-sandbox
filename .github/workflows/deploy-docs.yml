@@ -1,7 +1,8 @@
 name: Deploy Docs
 on:
   workflow_run:
-    workflows: ["Build Docs"]
+    workflows:
+      - build-docs.yml
     types: 
       - completed
 

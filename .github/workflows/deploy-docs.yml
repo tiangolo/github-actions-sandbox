@@ -18,7 +18,7 @@ jobs:
       - name: Download Artifact Docs
         uses: dawidd6/action-download-artifact@v2.9.0
         with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           # Required, workflow file name or ID
           workflow: build-docs.yml
           run_id: ${{ github.event.workflow_run.id }}
@@ -28,13 +28,9 @@ jobs:
       # - name: Debug tmate
       #   run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
       - name: Comment Deploy
-        # Only run on PR workflows
-        if: github.event.workflow_run.pull_requests[0].number > 0
-        env:
-          PR: "${{ github.event.workflow_run.pull_requests[0].number }}"
-          DEPLOY_URL: "nope"
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          COMMIT: "${{ github.event.workflow_run.pull_requests[0].head.sha }}"
-        run: bash ./docs-comment-deploy.sh
+        uses: .github/actions/comment-docs-preview-in-pr
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          deploy_url: nope-not-a-url
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3

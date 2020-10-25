@@ -31,10 +31,6 @@ class PartialGithubEvent(BaseModel):
     workflow_run: PartialGithubEventWorkflowRun
 
 
-class PartialGithubEventFile(BaseModel):
-    event: PartialGithubEvent
-
-
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     settings = Settings()
@@ -42,18 +38,18 @@ if __name__ == "__main__":
     g = Github(settings.input_token.get_secret_value())
     repo = g.get_repo(settings.github_repository)
     try:
-        event = PartialGithubEventFile.parse_file(settings.github_event_path)
+        event = PartialGithubEvent.parse_file(settings.github_event_path)
     except ValidationError as e:
         logging.error(f"Error parsing event file: {e.errors()}")
         sys.exit(0)
     use_pr: Optional[PullRequest] = None
     for pr in repo.get_pulls():
-        if pr.head.sha == event.event.workflow_run.head_commit.id:
+        if pr.head.sha == event.workflow_run.head_commit.id:
             use_pr = pr
             break
     if not use_pr:
         logging.error(
-            f"No PR found for hash: {event.event.workflow_run.head_commit.id}"
+            f"No PR found for hash: {event.workflow_run.head_commit.id}"
         )
         sys.exit(0)
     github_headers = {

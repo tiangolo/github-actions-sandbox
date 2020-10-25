@@ -14,6 +14,8 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v2
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - name: Download Artifact
         uses: actions/download-artifact@v2
         with:
@@ -22,5 +24,3 @@ jobs:
       #   run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.tmate.conf
       # - name: Debug tmate
       #   run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3

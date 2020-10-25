@@ -22,5 +22,5 @@ jobs:
           zip -r docs.zip ./site
       - uses: actions/upload-artifact@v2
         with:
-          name: docs-zip-${{ github.run_id }}
+          name: docs-zip
           path: ./docs.zip

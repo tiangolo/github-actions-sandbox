@@ -5,6 +5,8 @@ on:
     types: [opened, synchronize]
 jobs:
   build:
+    outputs:
+        pr_number: "1337"
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context

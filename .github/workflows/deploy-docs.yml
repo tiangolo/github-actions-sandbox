@@ -27,5 +27,12 @@ jobs:
       #   run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.tmate.conf
       # - name: Debug tmate
       #   run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
+      - name: Comment Deploy
+        env:
+          PR: "${{ github.event.workflow_run.pull_requests[0].number }}"
+          DEPLOY_URL: "nope"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          COMMIT: "${{ github.event.workflow_run.pull_requests[0].head.sha }}"
+        run: bash ./docs-comment-deploy.sh
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3

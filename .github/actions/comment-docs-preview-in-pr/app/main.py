@@ -55,8 +55,10 @@ if __name__ == "__main__":
     github_headers = {
         "Authorization": f"token {settings.input_token.get_secret_value()}"
     }
+    url = f"{github_api}/repos/{settings.github_repository}/issues/{use_pr.number}/comments"
+    logging.info(f"Using comments URL: {url}")
     response = httpx.post(
-        f"{github_api}/repos/{settings.github_repository}/issues{use_pr.number}/comments",
+        url,
         headers=github_headers,
         json={
             "body": f"📝 Docs preview for commit {use_pr.head.sha} at: {settings.input_deploy_url}"

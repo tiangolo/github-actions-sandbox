@@ -28,7 +28,7 @@ jobs:
       # - name: Debug tmate
       #   run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
       - name: Comment Deploy
-        uses: .github/actions/comment-docs-preview-in-pr
+        uses: ./.github/actions/comment-docs-preview-in-pr
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           deploy_url: nope-not-a-url

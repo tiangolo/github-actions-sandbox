@@ -14,8 +14,6 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v2
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
       - name: Download Artifact Docs
         uses: dawidd6/action-download-artifact@v2.9.0
         with:

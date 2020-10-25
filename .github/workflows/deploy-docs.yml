@@ -15,7 +15,7 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v2
       - name: Download Artifact
-      - uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v2
         with:
           name: docs-zip-${{ github.event.workflow_run.id }}
       # - name: Secure tmate session

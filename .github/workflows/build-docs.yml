@@ -23,5 +23,5 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: github.event_name == 'pull_request'
         with:
-          name: docs-zip-${{ github.event.pull_request.head.sha }}
+          name: docs-zip-${{ github.run_id }}
           path: ./docs.zip

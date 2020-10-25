@@ -14,10 +14,10 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v2
-      - name: Build Docs
-        run: |
-          mkdir -p site
-          echo "Hello Docs" > site/hello.html
+      - name: Download Artifact
+      - uses: actions/download-artifact@v2
+        with:
+          name: docs-zip-${{ github.event.workflow_run.id }}
       # - name: Secure tmate session
       #   run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.tmate.conf
       # - name: Debug tmate

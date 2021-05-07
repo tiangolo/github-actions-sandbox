@@ -12,9 +12,11 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
-    - name: Secure tmate session
-      run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.tmate.conf
-    - name: Debug tmate
-      run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
+    # - name: Secure tmate session
+    #   run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.tmate.conf
+    # - name: Debug tmate
+    #   run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
+      with:
+        limit-access-to-actor: true

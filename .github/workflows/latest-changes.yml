@@ -28,9 +28,9 @@ jobs:
         latest_changes_header: '# Release Notes\n\n'
         template_file: ./.github/workflows/release-notes.jinja2
         debug_logs: true
-    # - name: Secure tmate session
-    #   run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.tmate.conf
-    # - name: Debug tmate
-    #   run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
-    # - name: Setup tmate session
-    #   uses: mxschmitt/action-tmate@v3
+    - name: Secure tmate session
+      run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.tmate.conf
+    - name: Debug tmate
+      run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3

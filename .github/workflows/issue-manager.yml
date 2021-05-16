@@ -2,7 +2,7 @@ name: Issue Manager
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "* * * * *"
   issue_comment:
     types:
       - created
@@ -17,4 +17,4 @@ jobs:
       - uses: tiangolo/issue-manager@only-labels
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          config: '{"answered": {}}'
+          config: '{"answered": {"delay": 300}, "complete": {"delay": 300, "message": "Completed!"}}'

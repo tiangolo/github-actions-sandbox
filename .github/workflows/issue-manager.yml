@@ -1,0 +1,20 @@
+name: Issue Manager
+
+on:
+  schedule:
+    - cron: "* * * * *"
+  issue_comment:
+    types:
+      - created
+  issues:
+    types:
+      - labeled
+
+jobs:
+  issue-manager:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tiangolo/issue-manager@only-labels
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config: '{"answered": {}}'

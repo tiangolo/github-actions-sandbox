@@ -1,4 +1,4 @@
-name: Latest Changes
+name: Fake Test
 
 on:
   pull_request:

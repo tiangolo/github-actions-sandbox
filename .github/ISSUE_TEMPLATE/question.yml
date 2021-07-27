@@ -91,7 +91,7 @@ body:
         * Open the browser and call the endpoint `/`.
         * It returns a JSON with `{"Hello": "World"}`.
         * But I expected it to return `{"Hello": "Sara"}`.
-      render: makrdown
+      render: markdown
     validations:
       required: true
   - type: dropdown
@@ -112,6 +112,7 @@ body:
     attributes:
       label: Operating System Details
       description: You can add more details about your operating system here, in particular if you chose "Other".
+      render: markdown
   - type: input
     id: fastapi-version
     attributes:

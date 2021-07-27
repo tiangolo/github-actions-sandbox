@@ -91,7 +91,6 @@ body:
         * Open the browser and call the endpoint `/`.
         * It returns a JSON with `{"Hello": "World"}`.
         * But I expected it to return `{"Hello": "Sara"}`.
-      render: markdown
     validations:
       required: true
   - type: dropdown

@@ -1,5 +1,5 @@
 name: Feature Request
-description: Suggest an idea or ask for a feature that you would like to have in FastAPI.
+description: Suggest an idea or ask for a feature that you would like to have in FastAPI
 labels: [enhancement]
 body:
   - type: markdown

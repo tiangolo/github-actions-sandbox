@@ -67,8 +67,9 @@ if __name__ == "__main__":
             for lang in langs:
                 if lang in translations_map:
                     num = translations_map[lang]
-                    logging.info(f"Found a translation issue for {lang}: {num}")
+                    logging.info(f"Found a translation issue for language: {lang} in issue: {num}")
                     issue = repo.get_issue(num)
+                    logging.info(f"Writing comment in issue: {num} about PR: {pr.number}")
                     issue.create_comment(
                         f"Good news everyone! 😉 There's a new translation PR to be reviewed: #{pr.number} 🎉"
                     )

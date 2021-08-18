@@ -69,10 +69,17 @@ if __name__ == "__main__":
                     num = translations_map[lang]
                     logging.info(f"Found a translation issue for language: {lang} in issue: {num}")
                     issue = repo.get_issue(num)
-                    logging.info(f"Writing comment in issue: {num} about PR: {pr.number}")
-                    issue.create_comment(
-                        f"Good news everyone! 😉 There's a new translation PR to be reviewed: #{pr.number} 🎉"
-                    )
+                    message = f"Good news everyone! 😉 There's a new translation PR to be reviewed: #{pr.number} 🎉"
+                    already_notified = False
+                    logging.info(f"Checking current comments in issue: {num} to see if already notified about this PR: {pr.number}")
+                    for comment in issue.get_comments():
+                        if message in comment.body:
+                            already_notified = True
+                    if not already_notified:
+                        logging.info(f"Writing comment in issue: {num} about PR: {pr.number}")
+                        issue.create_comment(message)
+                    else:
+                        logging.info(f"Issue: {num} was already notified of PR: {pr.number}")
     else:
         logging.info(
             f"Changing labels in a closed PR doesn't trigger comments, PR: {pr.number}"

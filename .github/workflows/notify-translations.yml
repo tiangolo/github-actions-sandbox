@@ -6,7 +6,7 @@ on:
       - labeled
 
 jobs:
-  issue-manager:
+  notify-translations:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

@@ -1,7 +1,6 @@
 name: Blacken
 
 on:
-  push:
   pull_request:
     types: [opened, synchronize]
 
@@ -12,7 +11,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         token: ${{ secrets.ACTION_TOKEN }}
-        ref: ${{ github.event.pull_request.head.ref }}
+        ref: ${{ github.head_ref }}
     - name: Set up Python
       uses: actions/setup-python@v2
       with:

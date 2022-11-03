@@ -2,6 +2,13 @@
 
 ### Woohoo new stuff! 🎉
 
+This changed: ✨ Add Smokeshow. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 57 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/57). now back to code. 🤓
+
+🥳 🕺 💃
+
+...okay, back to code. 🤓
+### Woohoo new stuff! 🎉
+
 This changed: 🍻 Add more drunken code to check blacken action. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 56 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/56). now back to code. 🤓
 
 🥳 🕺 💃

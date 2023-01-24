@@ -15,7 +15,7 @@ body:
         2.
         3.
         ...
-    render: bash
+      render: bash
     validations:
       required: true
   - type: markdown
@@ -40,7 +40,7 @@ body:
         - Bug fix time
         - Release cadence
     validations:
-    required: true
+      required: true
   - type: checkboxes
     attributes:
       label: Check that box!
@@ -53,4 +53,3 @@ body:
       value: |
         ### The thrilling conclusion
         _to our template_
-      

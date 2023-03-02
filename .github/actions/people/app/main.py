@@ -1,4 +1,5 @@
 import logging
+import os
 import subprocess
 import sys
 from collections import Counter, defaultdict
@@ -696,6 +697,9 @@ if __name__ == "__main__":
     people_path.write_text(new_people_content, encoding="utf-8")
     github_sponsors_path.write_text(new_github_sponsors_content, encoding="utf-8")
     logging.info("Setting up GitHub Actions git user")
+    logging.info(f"Current directory: {os.getcwd()}")
+    logging.info(f"Files in current directory: {os.listdir()}")
+    subprocess.run(["git", "status"], check=True)
     subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
     subprocess.run(
         ["git", "config", "user.email", "github-actions@github.com"], check=True

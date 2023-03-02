@@ -677,10 +677,10 @@ if __name__ == "__main__":
     github_sponsors = {
         "sponsors": sponsors,
     }
-    people_path = Path("people.yml")
-    
+    people_path = Path("./docs/en/data/people.yml")
+    github_sponsors_path = Path("./docs/en/data/github_sponsors.yml")
     people_old_content = people_path.read_text(encoding="utf-8")
-    
+    github_sponsors_old_content = github_sponsors_path.read_text(encoding="utf-8")
     new_people_content = yaml.dump(
         people, sort_keys=False, width=200, allow_unicode=True
     )
@@ -689,12 +689,12 @@ if __name__ == "__main__":
     )
     if (
         people_old_content == new_people_content
-        
+        and github_sponsors_old_content == new_github_sponsors_content
     ):
         logging.info("The FastAPI People data hasn't changed, finishing.")
         sys.exit(0)
     people_path.write_text(new_people_content, encoding="utf-8")
-    
+    github_sponsors_path.write_text(new_github_sponsors_content, encoding="utf-8")
     logging.info("Setting up GitHub Actions git user")
     subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
     subprocess.run(
@@ -705,7 +705,7 @@ if __name__ == "__main__":
     subprocess.run(["git", "checkout", "-b", branch_name], check=True)
     logging.info("Adding updated file")
     subprocess.run(
-        ["git", "add", str(people_path)], check=True
+        ["git", "add", str(people_path), str(github_sponsors_path)], check=True
     )
     logging.info("Committing updated file")
     message = "👥 Update FastAPI People"

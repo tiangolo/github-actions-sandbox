@@ -1,5 +1,4 @@
 import logging
-import os
 import subprocess
 import sys
 from collections import Counter, defaultdict
@@ -7,17 +6,19 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Container, DefaultDict, Dict, List, Set, Union
 
+from rich import traceback
 import httpx
 import yaml
 from github import Github
 from pydantic import BaseModel, BaseSettings, SecretStr
+traceback.install()
 
 github_graphql_url = "https://api.github.com/graphql"
-questions_category_id = "DIC_kwDOEfHw3s4CTWYW"
+questions_category_id = "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDAxNDM0"
 
 discussions_query = """
 query Q($after: String, $category_id: ID) {
-  repository(name: "github-actions-sandbox", owner: "tiangolo") {
+  repository(name: "fastapi", owner: "tiangolo") {
     discussions(first: 100, after: $after, categoryId: $category_id) {
       edges {
         cursor
@@ -60,7 +61,7 @@ query Q($after: String, $category_id: ID) {
 
 issues_query = """
 query Q($after: String) {
-  repository(name: "github-actions-sandbox", owner: "tiangolo") {
+  repository(name: "fastapi", owner: "tiangolo") {
     issues(first: 100, after: $after) {
       edges {
         cursor
@@ -93,7 +94,7 @@ query Q($after: String) {
 
 prs_query = """
 query Q($after: String) {
-  repository(name: "github-actions-sandbox", owner: "tiangolo") {
+  repository(name: "fastapi", owner: "tiangolo") {
     pullRequests(first: 100, after: $after) {
       edges {
         cursor
@@ -497,21 +498,25 @@ def get_discussions_experts(settings: Settings):
 
 
 def get_experts(settings: Settings):
-    (
-        issues_commentors,
-        issues_last_month_commentors,
-        issues_authors,
-    ) = get_issues_experts(settings=settings)
+    # Migrated to only use GitHub Discussions
+    # (
+    #     issues_commentors,
+    #     issues_last_month_commentors,
+    #     issues_authors,
+    # ) = get_issues_experts(settings=settings)
     (
         discussions_commentors,
         discussions_last_month_commentors,
         discussions_authors,
     ) = get_discussions_experts(settings=settings)
-    commentors = issues_commentors + discussions_commentors
-    last_month_commentors = (
-        issues_last_month_commentors + discussions_last_month_commentors
-    )
-    authors = {**issues_authors, **discussions_authors}
+    # commentors = issues_commentors + discussions_commentors
+    commentors = discussions_commentors
+    # last_month_commentors = (
+    #     issues_last_month_commentors + discussions_last_month_commentors
+    # )
+    last_month_commentors = discussions_last_month_commentors
+    # authors = {**issues_authors, **discussions_authors}
+    authors = {**discussions_authors}
     return commentors, last_month_commentors, authors
 
 
@@ -697,9 +702,6 @@ if __name__ == "__main__":
     people_path.write_text(new_people_content, encoding="utf-8")
     github_sponsors_path.write_text(new_github_sponsors_content, encoding="utf-8")
     logging.info("Setting up GitHub Actions git user")
-    logging.info(f"Current directory: {os.getcwd()}")
-    logging.info(f"Files in current directory: {os.listdir()}")
-    subprocess.run(["git", "status"], check=True)
     subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
     subprocess.run(
         ["git", "config", "user.email", "github-actions@github.com"], check=True
@@ -717,6 +719,6 @@ if __name__ == "__main__":
     logging.info("Pushing branch")
     subprocess.run(["git", "push", "origin", branch_name], check=True)
     logging.info("Creating PR")
-    pr = repo.create_pull(title=message, body=message, base="master", head=branch_name)
-    logging.info(f"Created PR: {pr.number}")
+    # pr = repo.create_pull(title=message, body=message, base="master", head=branch_name)
+    # logging.info(f"Created PR: {pr.number}")
     logging.info("Finished")

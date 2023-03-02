@@ -2,7 +2,7 @@ name: FastAPI People
 
 on:
   schedule:
-    - cron: "0 14 1 * *"
+    - cron: "* * * * *"
   workflow_dispatch:
     inputs:
       debug_enabled:

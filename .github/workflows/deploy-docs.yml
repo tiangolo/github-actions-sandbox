@@ -1,4 +1,4 @@
-name: Preview Docs
+name: Deploy Docs
 on:
   workflow_run:
     workflows:
@@ -7,7 +7,7 @@ on:
       - completed
 
 jobs:
-  preview-docs:
+  deploy-docs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context

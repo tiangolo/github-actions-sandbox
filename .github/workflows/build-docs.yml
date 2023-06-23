@@ -104,17 +104,6 @@ jobs:
         with:
           name: docs-site
           path: ./site/**
-      # - name: Deploy to Netlify
-      #   uses: nwtgck/actions-netlify@v2.0.0
-      #   with:
-      #     publish-dir: './site'
-      #     production-branch: master
-      #     # github-token: ${{ secrets.FASTAPI_BUILD_DOCS_NETLIFY }}
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     enable-commit-comment: false
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
   # https://github.com/marketplace/actions/alls-green#why
   docs-all-green:  # This job does nothing and is only used for the branch protection

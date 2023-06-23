@@ -50,7 +50,7 @@ jobs:
       - name: Export Language Codes
         id: show-langs
         run: |
-          echo "::set-output name=langs::$(python ./scripts/docs.py langs-json)"
+          echo "langs=$(python ./scripts/docs.py langs-json)" >> $GITHUB_OUTPUT
 
   try-langs:
     needs:

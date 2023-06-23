@@ -39,6 +39,7 @@ jobs:
         with:
           publish-dir: './site'
           production-branch: master
+          production-deploy: ${{ github.event.workflow_run.head_repository.full_name == github.repository && github.event.workflow_run.head_branch == 'master' }}
           # github-token: ${{ secrets.FASTAPI_PREVIEW_DOCS_NETLIFY }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           enable-commit-comment: false

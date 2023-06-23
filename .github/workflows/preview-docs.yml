@@ -30,12 +30,6 @@ jobs:
           run_id: ${{ github.event.workflow_run.id }}
           name: docs-site
           path: ./site/
-      # - name: Unzip docs
-      #   if: steps.download.outputs.found_artifact == 'true'
-      #   run: |
-      #     cd ./site
-      #     unzip docs.zip
-      #     rm -f docs.zip
       - name: Deploy to Netlify
         if: steps.download.outputs.found_artifact == 'true'
         id: netlify

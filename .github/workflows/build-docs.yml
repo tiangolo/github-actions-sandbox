@@ -117,7 +117,7 @@ jobs:
       #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
   # https://github.com/marketplace/actions/alls-green#why
-  check:  # This job does nothing and is only used for the branch protection
+  docs-all-green:  # This job does nothing and is only used for the branch protection
     if: always()
     needs:
       - build-docs

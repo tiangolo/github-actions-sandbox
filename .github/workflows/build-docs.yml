@@ -27,6 +27,38 @@ jobs:
               - 'docs/**'
               - 'docs_src/**'
               - 'requirements-docs.txt'
+  langs:
+    needs:
+      - changes
+    runs-on: ubuntu-latest
+    outputs:
+      langs: ${{ steps.show-langs.outputs.langs }}
+    steps:
+      - uses: actions/cache@v3
+        id: cache
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ runner.os }}-python-docs-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml', 'requirements-docs.txt') }}-v03
+      - name: Install docs extras
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: pip install -r requirements-docs.txt
+      - name: Export Language Codes
+        id: show-langs
+        run: |
+          echo "::set-output name=langs::$(python ./scripts/docs.py langs-json)"
+
+  try-langs:
+    needs:
+      - changes
+      - langs
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        lang: ${{ fromJson(needs.langs.outputs.langs) }}
+    steps:
+      - name: Show lang
+        run: echo ${{ matrix.lang }}
+
   build-docs:
     needs: changes
     if: ${{ needs.changes.outputs.docs == 'true' }}

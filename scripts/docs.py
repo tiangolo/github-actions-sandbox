@@ -1,3 +1,4 @@
+import json
 import os
 import re
 import shutil
@@ -395,6 +396,14 @@ def update_config(lang: str):
         yaml.dump(config, sort_keys=False, width=200, allow_unicode=True),
         encoding="utf-8",
     )
+
+@app.command()
+def langs_json():
+    langs = []
+    for lang_path in get_lang_paths():
+        if lang_path.is_dir():
+            langs.append(lang_path.name)
+    print(json.dumps(langs))
 
 
 def get_key_section(

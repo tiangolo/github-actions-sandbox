@@ -24,7 +24,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: build-docs.yml
           run_id: ${{ github.event.workflow_run.id }}
-          name: docs-zip
+          name: docs-site
           path: ./site/
       # - name: Unzip docs
       #   if: steps.download.outputs.found_artifact == 'true'

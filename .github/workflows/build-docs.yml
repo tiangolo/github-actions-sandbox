@@ -4,7 +4,13 @@ on:
     branches:
       - master
   pull_request:
-    types: [opened, synchronize]
+    types:
+      - opened
+      - synchronize
+    paths:
+      - docs/**
+      - docs_src/**
+      - requirements-docs.txt
 jobs:
   build-docs:
     runs-on: ubuntu-latest

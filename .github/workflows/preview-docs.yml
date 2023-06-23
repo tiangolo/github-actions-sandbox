@@ -26,19 +26,19 @@ jobs:
           run_id: ${{ github.event.workflow_run.id }}
           name: docs-zip
           path: ./site/
-      - name: Unzip docs
-        if: steps.download.outputs.found_artifact == 'true'
-        run: |
-          cd ./site
-          unzip docs.zip
-          rm -f docs.zip
+      # - name: Unzip docs
+      #   if: steps.download.outputs.found_artifact == 'true'
+      #   run: |
+      #     cd ./site
+      #     unzip docs.zip
+      #     rm -f docs.zip
       - name: Deploy to Netlify
         if: steps.download.outputs.found_artifact == 'true'
         id: netlify
         uses: nwtgck/actions-netlify@v2.0.0
         with:
           publish-dir: './site'
-          production-deploy: false
+          production-branch: master
           # github-token: ${{ secrets.FASTAPI_PREVIEW_DOCS_NETLIFY }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           enable-commit-comment: false

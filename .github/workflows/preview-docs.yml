@@ -18,6 +18,7 @@ jobs:
       - name: Download Artifact Docs
         uses: dawidd6/action-download-artifact@v2.27.0
         with:
+          check_artifacts: true
           # github_token: ${{ secrets.FASTAPI_PREVIEW_DOCS_DOWNLOAD_ARTIFACTS }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: build-docs.yml

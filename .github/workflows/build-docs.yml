@@ -65,7 +65,9 @@ jobs:
         run: echo ${{ matrix.lang }}
 
   build-docs:
-    needs: changes
+    needs:
+      - changes
+      - langs
     if: ${{ needs.changes.outputs.docs == 'true' }}
     runs-on: ubuntu-latest
     strategy:

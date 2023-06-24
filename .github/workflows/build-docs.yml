@@ -18,15 +18,16 @@ jobs:
       docs: ${{ steps.filter.outputs.docs }}
     steps:
     - uses: actions/checkout@v3
-    # For pull requests it's not necessary to checkout the code
+    # For pull requests it's not necessary to checkout the code but for master it is
     - uses: dorny/paths-filter@v2
       id: filter
       with:
         filters: |
-            docs:
-              - 'docs/**'
-              - 'docs_src/**'
-              - 'requirements-docs.txt'
+          docs:
+            - README.md
+            - docs/**
+            - docs_src/**
+            - requirements-docs.txt
   langs:
     needs:
       - changes
@@ -98,8 +99,6 @@ jobs:
         run: python ./scripts/docs.py update-languages
       - name: Build Docs
         run: python ./scripts/docs.py build-lang ${{ matrix.lang }}
-      # - name: Zip docs
-      #   run: bash ./scripts/zip-docs.sh
       - uses: actions/upload-artifact@v3
         with:
           name: docs-site

@@ -26,5 +26,5 @@ jobs:
           limit-access-to-actor: true
       - uses: ./.github/actions/people
         with:
-          token: ${{ secrets.ACTIONS_TOKEN }}
+          token: ${{ secrets.SANDBOX_TOKEN }}
           standard_token: ${{ secrets.GITHUB_TOKEN }}

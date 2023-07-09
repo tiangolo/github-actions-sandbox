@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        token: ${{ secrets.ACTION_TOKEN }}
+        token: ${{ secrets.SANDBOX_TOKEN }}
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -33,8 +33,6 @@ jobs:
       if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}
       with:
         limit-access-to-actor: true
-        token: ${{ secrets.ACTION_TOKEN }}
-        standard_token: ${{ secrets.GITHUB_TOKEN }}
     - uses: docker://tiangolo/latest-changes:latest
       with:
         token: ${{ secrets.GITHUB_TOKEN }}

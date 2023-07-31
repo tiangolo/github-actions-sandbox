@@ -29,7 +29,7 @@
 
 Change in PR 6.
 
-Here's another change, again. Third is the charm. After marker `main`.
+Here's another change, again. Third is the charm. After marker `main`. Check previews don't override.
 
 FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.7+ based on standard Python type hints.
 

@@ -1,5 +1,12 @@
 # Release Notes
 
+### Woohoo new stuff! 🎉
+
+This changed: 👷 Update docs CI with Cloudflare. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 71 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/71). now back to code. 🤓
+
+🥳 🕺 💃
+
+...okay, back to code. 🤓
 ## Latest Changes
 
 

@@ -8,13 +8,7 @@ Just because I can't do that locally 🤷
 
 ---
 
-Let's try latest-changes, how long does it take on CI?
-
-Strike 1.
-
-Strike 2.
-
-Strike 3.
+Restart.
 
 ### Latest Changes
 

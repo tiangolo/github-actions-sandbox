@@ -12,6 +12,8 @@ Let's try latest-changes, how long does it take on CI?
 
 Strike 1.
 
+Strike 2.
+
 ### Latest Changes
 
 * ⚗ Third experiment from Camila's account. PR [#4](https://github.com/tiangolo/github-actions-sandbox/pull/4) by [@mariacamilagl](https://github.com/mariacamilagl).

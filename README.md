@@ -8,11 +8,7 @@ Just because I can't do that locally 🤷
 
 ---
 
-Let's update latest-changes. Now let's try adding a label.
-
-And now after a release and two labels.
-
-Let's add an easter egg.
+Let's run a Docker CI cycle to time it.
 
 # Licence
 

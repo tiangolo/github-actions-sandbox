@@ -49,6 +49,9 @@ This changed: 👷 Update docs CI with Cloudflare. Done by [the GitHub user tian
 🥳 🕺 💃
 
 ...okay, back to code. 🤓
+
+* ⚗ Third experiment from Camila's account. PR [#4](https://github.com/tiangolo/github-actions-sandbox/pull/4) by [@mariacamilagl](https://github.com/mariacamilagl).
+
 ## Latest Changes
 
 

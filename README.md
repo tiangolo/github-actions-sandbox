@@ -8,7 +8,7 @@ Just because I can't do that locally 🤷
 
 ---
 
-Let's run a Docker CI cycle to time it.
+Let's run a Docker CI cycle to time it with Python slim.
 
 # Licence
 

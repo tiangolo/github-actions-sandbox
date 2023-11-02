@@ -1,5 +1,15 @@
 # Release Notes
 
+### Features
+
+#### Woohoo new stuff! 🎉
+
+This changed: 📝 2 labels! And one release. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 83 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/83). now back to code. 🤓
+
+🥳 🕺 💃
+
+...okay, back to code. 🤓
+
 ## 0.1.0
 
 #### Woohoo new stuff! 🎉

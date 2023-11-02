@@ -8,7 +8,7 @@ Just because I can't do that locally 🤷
 
 ---
 
-Let's update latest-changes.
+Let's update latest-changes. Now let's try adding a label.
 
 # Licence
 

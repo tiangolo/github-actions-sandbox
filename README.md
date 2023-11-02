@@ -10,6 +10,8 @@ Just because I can't do that locally 🤷
 
 Let's update latest-changes. Now let's try adding a label.
 
+And now after a release and two labels.
+
 # Licence
 
 This project is licensed under the terms of the WTFPL license.

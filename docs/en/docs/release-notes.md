@@ -1,5 +1,7 @@
 # Release Notes
 
+## 0.1.0
+
 #### Woohoo new stuff! 🎉
 
 This changed: ✨ Update latest-changes. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 81 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/81). now back to code. 🤓

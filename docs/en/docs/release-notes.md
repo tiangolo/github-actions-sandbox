@@ -1,5 +1,7 @@
 # Release Notes
 
+## 0.2.0
+
 ### Features
 
 #### Woohoo new stuff! 🎉

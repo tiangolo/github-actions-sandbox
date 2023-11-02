@@ -60,6 +60,16 @@ This changed: 👷 Update docs CI with Cloudflare. Done by [the GitHub user tian
 
 * ⚗ Third experiment from Camila's account. PR [#4](https://github.com/tiangolo/github-actions-sandbox/pull/4) by [@mariacamilagl](https://github.com/mariacamilagl).
 
+### Features
+
+#### Woohoo new stuff! 🎉
+
+This changed: ✨ Add a PR with a label. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 82 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/82). now back to code. 🤓
+
+🥳 🕺 💃
+
+...okay, back to code. 🤓
+
 ## Latest Changes
 
 

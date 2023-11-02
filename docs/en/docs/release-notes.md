@@ -1,5 +1,15 @@
 # Release Notes
 
+### Internal
+
+#### Woohoo new stuff! 🎉
+
+This changed: 📝 Run a Docker CI cycle. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 85 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/85). now back to code. 🤓
+
+🥳 🕺 💃
+
+...okay, back to code. 🤓
+
 ### Easter Eggs
 
 #### Woohoo new stuff! 🎉

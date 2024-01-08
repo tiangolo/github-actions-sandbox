@@ -7,30 +7,42 @@ on:
       - completed
 
 jobs:
-  build:
+  deploy-docs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Clean site
+        run: |
+          rm -rf ./site
+          mkdir ./site
       - name: Download Artifact Docs
-        uses: dawidd6/action-download-artifact@v2.9.0
+        id: download
+        uses: dawidd6/action-download-artifact@v2.27.0
         with:
+          if_no_artifact_found: ignore
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Required, workflow file name or ID
           workflow: build-docs.yml
           run_id: ${{ github.event.workflow_run.id }}
-          name: docs-zip
-      # - name: Secure tmate session
-      #   run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.tmate.conf
-      # - name: Debug tmate
-      #   run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
+          name: docs-site
+          path: ./site/
+      - name: Deploy to Cloudflare Pages
+        if: steps.download.outputs.found_artifact == 'true'
+        id: deploy
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: github-actions-sandbox
+          directory: './site'
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ ( github.event.workflow_run.head_repository.full_name == github.repository && github.event.workflow_run.head_branch == 'master' && 'main' ) || ( github.event.workflow_run.head_sha ) }}
       - name: Comment Deploy
+        if: steps.deploy.outputs.url != ''
         uses: ./.github/actions/comment-docs-preview-in-pr
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          deploy_url: nope-not-a-url
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+          deploy_url: "${{ steps.deploy.outputs.url }}"

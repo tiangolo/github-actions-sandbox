@@ -8,20 +8,9 @@ Just because I can't do that locally 🤷
 
 ---
 
-Let's clean all this.
-
-Again please.
-
-More experiments...
-
-Another experiment 🥼
-
-Check docs. More docs.
-
-### Latest Changes
-
-* ⚗ Third experiment from Camila's account. PR [#4](https://github.com/tiangolo/github-actions-sandbox/pull/4) by [@mariacamilagl](https://github.com/mariacamilagl).
+Let's run a Docker CI cycle to time it with Python slim.
 
 # Licence
 
 This project is licensed under the terms of the WTFPL license.
+some text 2021-07-21T10:22+00:00

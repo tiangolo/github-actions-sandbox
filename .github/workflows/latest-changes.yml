@@ -11,26 +11,48 @@ on:
       number:
         description: PR number
         required: true
+      debug_enabled:
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: 'false'
 
 jobs:
   latest-changes:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        # To allow latest-changes to commit to the main branch
+        token: ${{ secrets.SANDBOX_TOKEN }}
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
+    # Allow debugging with tmate
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled == 'true' }}
+      with:
+        limit-access-to-actor: true
     - uses: docker://tiangolo/latest-changes:latest
+    # - uses: tiangolo/latest-changes@main
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        latest_changes_file: docs/release-notes.md
-        latest_changes_header: '# Release Notes\n\n'
+        latest_changes_file: docs/en/docs/release-notes.md
+        latest_changes_header: '# Release Notes'
         template_file: ./.github/workflows/release-notes.jinja2
+        end_regex: '^## '
         debug_logs: true
-    # - name: Secure tmate session
-    #   run: curl https://github.com/tiangolo.keys > ~/.tmate_authorized_keys && echo 'set tmate-authorized-keys "~/.tmate_authorized_keys"' > ~/.tmate.conf
-    # - name: Debug tmate
-    #   run: cat ~/.tmate_authorized_keys && echo "authorized_keys" && cat ~/.tmate.conf
-    # - name: Setup tmate session
-    #   uses: mxschmitt/action-tmate@v3
+        labels: >
+          [
+            {"label": "breaking", "header": "### Breaking Changes"},
+            {"label": "security", "header": "### Security Fixes"},
+            {"label": "feature", "header": "### Features"},
+            {"label": "bug", "header": "### Fixes"},
+            {"label": "refactor", "header": "### Refactors"},
+            {"label": "upgrade", "header": "### Upgrades"},
+            {"label": "docs", "header": "### Docs"},
+            {"label": "lang-all", "header": "### Translations"},
+            {"label": "internal", "header": "### Internal"},
+            {"label": "egg", "header": "### Easter Eggs"}
+          ]

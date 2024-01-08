@@ -48,21 +48,21 @@ if __name__ == "__main__":
             use_pr = pr
             break
     if not use_pr:
-        logging.error(
-            f"No PR found for hash: {event.workflow_run.head_commit.id}"
-        )
+        logging.error(f"No PR found for hash: {event.workflow_run.head_commit.id}")
         sys.exit(0)
     github_headers = {
         "Authorization": f"token {settings.input_token.get_secret_value()}"
     }
+    url = f"{github_api}/repos/{settings.github_repository}/issues/{use_pr.number}/comments"
+    logging.info(f"Using comments URL: {url}")
     response = httpx.post(
-        f"{github_api}/repos/{settings.github_repository}/issues{use_pr.number}/comments",
+        url,
         headers=github_headers,
         json={
             "body": f"📝 Docs preview for commit {use_pr.head.sha} at: {settings.input_deploy_url}"
         },
     )
-    if not response.status_code == 200:
+    if not (200 <= response.status_code <= 300):
         logging.error(f"Error posting comment: {response.text}")
         sys.exit(1)
     logging.info("Finished")

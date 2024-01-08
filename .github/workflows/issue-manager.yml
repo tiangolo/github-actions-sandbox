@@ -1,0 +1,28 @@
+name: Issue Manager
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  issue_comment:
+    types:
+      - created
+  issues:
+    types:
+      - labeled
+  pull_request_target:
+    types:
+      - labeled
+  workflow_dispatch:
+
+jobs:
+  issue-manager:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
+      #   with:
+      #     limit-access-to-actor: true
+      - uses: tiangolo/issue-manager@only-labels
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config: '{"answered": {"delay": 300}, "complete": {"delay": 300, "message": "Completed!"}}'

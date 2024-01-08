@@ -11,7 +11,8 @@ jobs:
   label-approved:
     runs-on: ubuntu-latest
     steps:
-    - uses: docker://tiangolo/label-approved:0.0.2
+      # - uses: docker://tiangolo/label-approved:0.0.2
+    - uses: tiangolo/label-approved@upgrade-pydantic-and-logic
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         debug: true

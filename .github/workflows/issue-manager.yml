@@ -22,7 +22,7 @@ jobs:
       #   uses: mxschmitt/action-tmate@v3
       #   with:
       #     limit-access-to-actor: true
-      - uses: tiangolo/issue-manager@fix-datetime
+      - uses: tiangolo/issue-manager@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           config: '{"answered": {"delay": 300}, "complete": {"delay": 300, "message": "Completed!"}}'

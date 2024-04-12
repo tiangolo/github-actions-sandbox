@@ -99,6 +99,10 @@ jobs:
         run: python ./scripts/docs.py update-languages
       - name: Build Docs
         run: python ./scripts/docs.py build-lang ${{ matrix.lang }}
+      - name: Override Docs for GitHub Actions Sandbox
+        run: |
+          rm -rf ./site/
+          echo "Hello GitHub Actions Sandbox" > ./site/index.html
       - uses: actions/upload-artifact@v3
         with:
           name: docs-site

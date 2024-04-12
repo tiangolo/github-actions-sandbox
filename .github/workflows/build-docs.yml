@@ -28,6 +28,11 @@ jobs:
             - docs/**
             - docs_src/**
             - requirements-docs.txt
+            - pyproject.toml
+            - mkdocs.yml
+            - mkdocs.insiders.yml
+            - .github/workflows/build-docs.yml
+            - .github/workflows/deploy-docs.yml
   langs:
     needs:
       - changes

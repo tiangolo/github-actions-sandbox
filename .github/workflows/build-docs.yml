@@ -107,6 +107,7 @@ jobs:
       - name: Override Docs for GitHub Actions Sandbox
         run: |
           rm -rf ./site/
+          mkdir ./site/
           echo "Hello GitHub Actions Sandbox" > ./site/index.html
       - uses: actions/upload-artifact@v3
         with:

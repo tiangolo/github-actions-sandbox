@@ -26,19 +26,10 @@ jobs:
           merge-multiple: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
-      # - name: Check downloaded files
-      #   id: check-download
-      #   run: |
-      #     if [[ $(ls -A site 2> /dev/null) ]]
-      #     then
-      #       echo "has-files=true" >> "$GITHUB_OUTPUT"
-      #     else
-      #       echo "has-files=false" >> "$GITHUB_OUTPUT"
-      #     fi
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
+      #   with:
+      #     limit-access-to-actor: true
       - name: Deploy to Cloudflare Pages
         # hashFiles returns an empty string if there are no files
         if: hashFiles('./site/*')

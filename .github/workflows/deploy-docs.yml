@@ -20,7 +20,6 @@ jobs:
           rm -rf ./site
           mkdir ./site
       - uses: actions/download-artifact@v4
-        id: download
         with:
           path: ./site/
           pattern: docs-site-*
@@ -31,12 +30,18 @@ jobs:
         uses: mxschmitt/action-tmate@v3
         with:
           limit-access-to-actor: true
-      # - name: Setup tmate session
-      #   uses: mxschmitt/action-tmate@v3
-      #   with:
-      #     limit-access-to-actor: true
+      # - name: Check downloaded files
+      #   id: check-download
+      #   run: |
+      #     if [[ $(ls -A site 2> /dev/null) ]]
+      #     then
+      #       echo "has-files=true" >> "$GITHUB_OUTPUT"
+      #     else
+      #       echo "has-files=false" >> "$GITHUB_OUTPUT"
+      #     fi
       - name: Deploy to Cloudflare Pages
-        if: steps.download.outputs.download-path
+        # hashFiles returns an empty string if there are no files
+        if: hashFiles('./site/*')
         id: deploy
         uses: cloudflare/pages-action@v1
         with:

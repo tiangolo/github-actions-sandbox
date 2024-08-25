@@ -1,5 +1,13 @@
 # Release Notes
 
+#### Woohoo new stuff! 🎉
+
+This changed: 📝 P1. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 89 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/89). now back to code. 🤓
+
+🥳 🕺 💃
+
+...okay, back to code. 🤓
+
 ### Internal
 
 #### Woohoo new stuff! 🎉
@@ -33,16 +41,6 @@ This changed: 🥚 Add a fake easter egg, try custom label. Done by [the GitHub 
 #### Woohoo new stuff! 🎉
 
 This changed: 🥚 Add a fake easter egg, try custom label. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 84 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/84). now back to code. 🤓
-
-🥳 🕺 💃
-
-...okay, back to code. 🤓
-
-#### ### Docs
-
-#### Woohoo new stuff! 🎉
-
-This changed: 📝 Update README. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 87 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/87). now back to code. 🤓
 
 🥳 🕺 💃
 

@@ -35,7 +35,7 @@ jobs:
       with:
         limit-access-to-actor: true
     # - uses: docker://tiangolo/latest-changes:latest
-    - uses: tiangolo/latest-changes@retries
+    - uses: tiangolo/latest-changes@race
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         latest_changes_file: docs/en/docs/release-notes.md

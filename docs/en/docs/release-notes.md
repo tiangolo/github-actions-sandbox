@@ -2,6 +2,14 @@
 
 #### Woohoo new stuff! 🎉
 
+This changed: 🔥 Remove old files. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 100 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/100). now back to code. 🤓
+
+🥳 🕺 💃
+
+...okay, back to code. 🤓
+
+#### Woohoo new stuff! 🎉
+
 This changed: 📝 C4. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 98 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/98). now back to code. 🤓
 
 🥳 🕺 💃

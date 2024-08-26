@@ -118,6 +118,16 @@ This changed: 🥚 Add a fake easter egg, try custom label. Done by [the GitHub 
 
 ...okay, back to code. 🤓
 
+#### ### Refactors
+
+#### Woohoo new stuff! 🎉
+
+This changed: 🔥 Remove drunken code. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 101 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/101). now back to code. 🤓
+
+🥳 🕺 💃
+
+...okay, back to code. 🤓
+
 ## 0.2.0
 
 ### Features

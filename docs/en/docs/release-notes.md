@@ -122,7 +122,7 @@ This changed: 🥚 Add a fake easter egg, try custom label. Done by [the GitHub 
 
 #### Woohoo new stuff! 🎉
 
-This changed: 👷 Update `test.yml` GitHub Action `upload-artifact`. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 102 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/102). now back to code. 🤓
+This changed: 👷 Update `build-docs.yml` GitHub Action `upload-artifact`. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 103 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/103). now back to code. 🤓
 
 🥳 🕺 💃
 

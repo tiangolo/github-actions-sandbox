@@ -118,11 +118,11 @@ This changed: 🥚 Add a fake easter egg, try custom label. Done by [the GitHub 
 
 ...okay, back to code. 🤓
 
-#### ### Refactors
+#### ### Internal
 
 #### Woohoo new stuff! 🎉
 
-This changed: 🔥 Remove drunken code. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 101 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/101). now back to code. 🤓
+This changed: 👷 Update `test.yml` GitHub Action `upload-artifact`. Done by [the GitHub user tiangolo](https://github.com/tiangolo). Check the [Pull Request 102 with the changes and stuff](https://github.com/tiangolo/github-actions-sandbox/pull/102). now back to code. 🤓
 
 🥳 🕺 💃
 

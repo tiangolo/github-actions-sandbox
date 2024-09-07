@@ -22,13 +22,13 @@ jobs:
   issue-manager:
     runs-on: ubuntu-latest
     steps:
-      - uses: tiangolo/issue-manager@0.5.0
+      - uses: tiangolo/issue-manager@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           config: >
             {
               "answered": {
-                "delay": 864000,
+                "delay": 120,
                 "message": "Assuming the original need was handled, this will be automatically closed now. But feel free to add more comments or create new issues or PRs."
               },
               "waiting": {
